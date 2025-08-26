@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lumiday – 계정 삭제 요청</title>
+    <meta name="description" content="Lumiday 계정 및 관련 데이터 삭제 요청 페이지" />
+    <style>
+        body { font-family: sans-serif; background: #f9fafb; color: #111; margin: 0; padding: 0; }
+        .wrap { max-width: 800px; margin: 0 auto; padding: 24px; }
+        h1 { font-size: 24px; margin-bottom: 16px; }
+        h2 { font-size: 20px; margin-top: 24px; margin-bottom: 8px; }
+        p, li { line-height: 1.6; }
+        .panel { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+        input, textarea { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 15px; }
+        button { padding: 12px 16px; border-radius: 6px; border: none; background: #2563eb; color: #fff; font-weight: bold; cursor: pointer; }
+        button:disabled { opacity: 0.6; cursor: not-allowed; }
+        .muted { color: #666; font-size: 14px; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h1>Lumiday – 계정 삭제 요청</h1>
+    <p>본 페이지에서 Lumiday 계정 삭제를 요청할 수 있습니다. 계정 삭제 시 모든 데이터가 영구적으로 삭제되며, 일부 데이터는 법적 사유로 일정 기간 보관될 수 있습니다.</p>
+
+    <div class="panel">
+        <h2>삭제 요청 절차</h2>
+        <ol>
+            <li>등록된 이메일 주소를 입력합니다.</li>
+            <li>확인 메일을 통해 요청을 인증합니다.</li>
+            <li>7일 이내에 계정과 관련 데이터가 삭제됩니다.</li>
+        </ol>
+    </div>
+
+    <div class="panel">
+        <h2>삭제되는 데이터</h2>
+        <ul>
+            <li>프로필 및 계정 메타데이터</li>
+            <li>일기, 노트 등 작성한 콘텐츠</li>
+            <li>업로드한 사진 및 영상</li>
+            <li>앱 내 설정, 일정, 선호도</li>
+        </ul>
+
+        <h2>보관되는 데이터</h2>
+        <ul>
+            <li>결제/거래 기록: 법적·회계 목적상 최대 90일 보관</li>
+            <li>서버 로그 및 백업: 서비스 안정성 확보를 위해 최대 90일 보관</li>
+        </ul>
+        <p class="muted">보관 기간 종료 후 잔여 데이터는 모두 영구 삭제됩니다.</p>
+    </div>
+
+    <div class="panel">
+        <h2>삭제 요청 양식</h2>
+        <form>
+            <label for="email">등록된 이메일 주소</label><br>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required /><br><br>
+
+            <label for="reason">추가 요청 사항 (선택)</label><br>
+            <textarea id="reason" name="reason" rows="3" placeholder="예: 데이터 백업 후 삭제 요청"></textarea><br><br>
+
+            <button type="submit">계정 삭제 요청하기</button>
+        </form>
+    </div>
+
+    <p class="muted">문의: <a href="mailto:support@yourdomain.com">support@yourdomain.com</a></p>
+    <p class="muted">최종 업데이트: 2025-08-26</p>
+</div>
+</body>
+</html>
