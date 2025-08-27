@@ -53,7 +53,7 @@
         <h2>삭제 요청 양식</h2>
         <form>
             <label for="email">등록된 이메일 주소</label><br>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required /><br><br>
+            <input id="email" name="email" type="email" placeholder="yourEmail@example.com" required /><br><br>
 
             <label for="reason">추가 요청 사항 (선택)</label><br>
             <textarea id="reason" name="reason" rows="3" placeholder="예: 데이터 백업 후 삭제 요청"></textarea><br><br>
@@ -62,8 +62,38 @@
         </form>
     </div>
 
-    <p class="muted">문의: <a href="mailto:support@yourdomain.com">support@yourdomain.com</a></p>
+    <p class="muted">문의: <a href="mailto:paikho2@gmail.com">paikho2@gmail.com</a></p>
     <p class="muted">최종 업데이트: 2025-08-26</p>
 </div>
 </body>
 </html>
+<script>
+    const ENDPOINT = "https://us-central1-lumiday-d8a00.cloudfunctions.net/submitAccountDeletion";
+
+    const form = document.querySelector("form");
+    const btn = form.querySelector("button");
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value.trim();
+        const reason = document.getElementById("reason").value.trim();
+
+        btn.disabled = true;
+        try {
+            const res = await fetch(ENDPOINT, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, reason }),
+            });
+            const json = await res.json();
+            if (!res.ok || !json.ok) throw new Error(json.error || "SEND_FAILED");
+
+            alert("요청이 접수되었습니다. 이메일을 확인해 주세요.");
+            form.reset();
+        } catch (e) {
+            alert("전송에 실패했습니다. 잠시 후 다시 시도하거나 이메일로 문의해 주세요.");
+        } finally {
+            btn.disabled = false;
+        }
+    });
+</script>
